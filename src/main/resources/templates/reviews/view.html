@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Review details</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${review}">There is no such review!</h3>
+
+<div class="container mt-5">
+    <h1 class="text-white">Review details</h1>
+    <p class="text-white"><strong>Id:</strong> <span th:text="${review.id}">Id</span></p>
+    <p class="text-white"><strong>Date:</strong> <span th:text="${review.dateOfSubmission}">Date of submission</span></p>
+    <p class="text-white"><strong>Writer Comment:</strong> <span th:text="${review.text}">Writer Comment</span></p>
+    <p class="text-white"><strong>Conclusion:</strong> <span th:text="${review.conclusion}">Conclusion</span></p>
+    <p class="text-white"><strong>Reviewer id:</strong> <span th:text="${review.reviewerId}">Reviewer Id</span></p>
+    <p class="text-white"><strong>Passed?</strong> <span th:text="${review.passed}">Pass?</span></p>
+</div>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

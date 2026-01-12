@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Application</title>
+</head>
+<body>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h4 class="text-white">Create an Application</h4>
+<form th:action="@{/applications/save}" th:object="${appl}" method="post">
+    <div class="form-group">
+        <label class="text-white" for="topic" >Topic: </label>
+        <input class = "form-control" type="text" id="topic" th:field="*{topic}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}">Topic Error</span>
+
+        <label class="text-white" for="aims" >Aims: </label>
+        <input class = "form-control" type="text" id="aims" th:field="*{aims}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('aims')}" th:errors="*{aims}">Aims Error</span>
+
+        <label class="text-white" for="problems" >Problems: </label>
+        <input class = "form-control" type="text" id="problems" th:field="*{problems}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('problems')}" th:errors="*{problems}">Problems Error</span>
+
+        <label class="text-white" for="technologies" >Technologies: </label>
+        <input class = "form-control" type="text" id="technologies" th:field="*{technologies}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('technologies')}" th:errors="*{technologies}">Technologies Error</span>
+
+        <label class="text-white" for="status" >Status: </label>
+        <select id="status" th:field="*{status}">
+            <option th:each="status : ${statuses}"
+                    th:value="${status}"
+                    th:text="${status}"
+                    th:selected="${status == appl.status}">
+            </option>
+        </select>
+        <span class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</span>
+
+        <br>
+
+        <label class="text-white" for="studentId">Student id: </label>
+        <select id="studentId" th:field="*{studentId}">
+            <option th:each="studentId : ${studentIds}"
+                    th:value="${studentId}"
+                    th:text="${studentId}"
+                    th:selected="${studentId == appl.studentId}">
+            </option>
+        </select>
+<!--        <span class="text-danger" th:if="${#fields.hasErrors('studentId')}" th:errors="*{appl.studentId}">Student id Error</span>-->
+        <br>
+
+        <label class="text-white" for="tutorId">Supervisor id: </label>
+        <select id="tutorId" th:field="*{tutorId}">
+            <option th:each="tutorId : ${tutorIds}"
+                    th:value="${tutorId}"
+                    th:text="${tutorId}"
+                    th:selected="${tutorId == appl.tutorId}">
+            </option>
+        </select>
+<!--        <span class="text-danger" th:if="${#fields.hasErrors('tutorId')}" th:errors="*{appl.tutorId}">Tutor id Error</span>-->
+
+    </div>
+    <button class="btn btn-info mx-2 my-2" type="submit">Save application</button>
+</form>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

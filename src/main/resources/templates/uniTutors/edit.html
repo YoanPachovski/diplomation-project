@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update University Tutor</title>
+</head>
+<body>
+    <style th:replace="~{fragments :: style}"></style>
+    <div th:replace="~{fragments :: head}"></div>
+    <div th:replace="~{fragments :: header-nav}"></div>
+
+    <h4 class="text-white">Update University Tutor</h4>
+    <form th:action="@{'/uniTutors/update/' + ${uniTutor.id}}" method="post">
+        <input type="hidden" th:field="*{uniTutor.id}"/>
+        <label class="text-white"for="name">Name:</label>
+        <input type="text" id="name" th:field="*{uniTutor.name}"/>
+
+        <label class="text-white"for="positionType">Position type: </label>
+        <select id="positionType" th:field="*{uniTutor.positionType}">
+            <option th:each="positionType : ${positionTypes}"
+                    th:value="${positionType}"
+                    th:text="${positionType}"
+                    th:selected="${positionType == uniTutor.positionType}">
+            </option>
+<!--        <input type="text" id="positionType" th:field="*{uniTutor.positionType}"/>-->
+        </select>
+
+        <button class="btn btn-info mx-2 my-2" type="submit">Update tutor</button>
+    </form>
+    <footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Thesis</title>
+</head>
+<body>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h4 class="text-white">Create a Thesis</h4>
+<form th:action="@{/theses/save}" th:object="${thesis}" method="post">
+    <div class="form-group">
+        <label class="text-white" for="title">Title: </label>
+        <input class = "form-control" type="text" id="title" th:field="*{title}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</span>
+
+        <label class="text-white" for="title">Content: </label>
+        <input class = "form-control" type="text" id="text" th:field="*{text}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Text Error</span>
+
+
+        <label class="text-white" for="applicationId">Application id: </label>
+        <select id="applicationId" th:field="*{applicationId}">
+            <option th:each="applicationId : ${applicationIds}"
+                    th:value="${applicationId}"
+                    th:text="${applicationId}"
+                    th:selected="${applicationId == thesis.applicationId}">
+            </option>
+        </select>
+<!--        <span class="text-danger" th:if="${#fields.hasErrors('tutorId')}" th:errors="*{appl.tutorId}">Tutor id Error</span>-->
+
+    </div>
+    <button class="btn btn-info mx-2 my-2" type="submit">Save thesis</button>
+</form>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

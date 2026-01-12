@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Theses!</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${theses} and ${theses.size()}" class="text-white">There are no theses!</h3>
+<button class="btn btn-info mx-2 my-2" type="button">
+    <a th:href="@{'/theses/create'}" class="text-black text-decoration-none">
+        Create Thesis
+    </a>
+</button>
+<form th:action="@{/theses/by-title}" method="get">
+    <label class="text-white"for="title">Title containing:</label>
+    <input type="text" id="title" name="title">
+    <button class="btn btn-info mx-2 my-2" type="submit">Filter</button>
+</form>
+
+<table class="table table-primary table-striped table-hover table-bordered border-danger-subtle">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Text</th>
+                <th scope="col">Date of submission</th>
+                <th scope="col">Application id</th>
+                <th scope="col">Update Thesis</th>
+                <th scope="col">Delete Thesis</th>
+                <th scope="col">Thesis Info</th>
+            </tr>
+        </thead>
+        <tbody class = "table-group-divider">
+            <tr th:each="thesis: ${theses}">
+                <td th:text="${thesis.id}"></td>
+                <td th:text="${thesis.title}"></td>
+                <td th:text="${thesis.text}"></td>
+                <td th:text="${thesis.dateOfSubmission}"></td>
+                <td th:text="${thesis.applicationId}"></td>
+
+                <td><a class="btn btn-primary" th:href="@{'/theses/edit/'+${thesis.id}}">Update</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/theses/delete/'+${thesis.id}}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/theses/view/'+${thesis.id}}">Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

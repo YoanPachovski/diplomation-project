@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Defense</title>
+</head>
+<body>
+    <style th:replace="~{fragments :: style}"></style>
+    <div th:replace="~{fragments :: head}"></div>
+    <div th:replace="~{fragments :: header-nav}"></div>
+
+    <h4 class="text-white">Update Defense</h4>
+    <form th:action="@{'/defenses/update/' + ${defense.id}}" method="post">
+        <input type="hidden" th:field="*{defense.id}"/>
+
+        <label class="text-white" for="grade">Grade:</label>
+        <select id="grade" th:field="*{defense.grade}">
+            <option th:each="i : ${#numbers.sequence(2, 6)}"
+                    th:value="${i}" th:text="${i}">
+            </option>
+        </select>
+
+        <label class="text-white" for="date">Date of submission:</label>
+        <input type="date" id="date" th:field="*{defense.date}"/>
+
+        <label class="text-white" for="reviewId">Review Id: </label>
+        <select id="reviewId" th:field="*{defense.reviewId}">
+            <option th:each="reviewId : ${reviewIds}"
+                    th:value="${reviewId}"
+                    th:text="${reviewId}"
+                    th:selected="${reviewId == defense.reviewId}">
+            </option>
+        </select>
+
+        <button class="btn btn-info mx-2 my-2" type="submit">Update defense</button>
+    </form>
+    <footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

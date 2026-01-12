@@ -1,0 +1,70 @@
+/* Site-wide styles and background */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  /* fallback color */
+  background-color: #0f1724; /* darker base */
+  /* subtle diagonal gradient */
+  background-image: linear-gradient(135deg, #0f1724 0%, #0b1a33 40%, #071220 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #e6eef8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* Navbar improvements */
+.navbar {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.navbar .navbar-brand {
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+.navbar .navbar-brand:hover {
+  color: #e6f2ff;
+}
+.navbar .nav-link {
+  color: rgba(255,255,255,0.9);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.navbar .nav-link:hover, .navbar .nav-link:focus {
+  color: #cfe9ff;
+}
+.navbar .nav-link.active {
+  color: #a6d1ff;
+  font-weight: 600;
+}
+
+/* Add subtle elevation so navbar separates from content */
+.navbar.shadow-sm {
+  box-shadow: 0 4px 12px rgba(2,6,23,0.6);
+}
+
+/* Make main container/card backgrounds readable on dark backdrop */
+.container, .card, .jumbotron, .content {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 8px;
+  padding: 1rem;
+  color: #e6eef8;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5 {
+  color: #f1f9ff;
+}
+
+/* Make images slightly elevated */
+img {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  color: rgba(255,255,255,0.65);
+}

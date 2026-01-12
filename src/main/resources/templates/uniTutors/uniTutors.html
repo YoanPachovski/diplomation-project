@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>University tutors!</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${uniTutors} and ${uniTutors.size()}" class="text-white">There are no uniTutors!</h3>
+<button class="btn btn-info mx-2 my-2" type="button">
+    <a th:href="@{'/uniTutors/create'}" class="text-black text-decoration-none">
+        Create university tutor
+    </a>
+</button>
+<table class="table table-primary table-striped table-hover table-bordered border-danger-subtle">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Position</th>
+                <th scope="col">Update UniTutor</th>
+                <th scope="col">Delete UniTutor</th>
+                <th scope="col">UniTutor Info</th>
+            </tr>
+        </thead>
+        <tbody class = "table-group-divider">
+            <tr th:each="uniTutor: ${uniTutors}">
+                <td th:text="${uniTutor.id}"></td>
+                <td th:text="${uniTutor.name}"></td>
+                <td th:text="${uniTutor.positionType}"></td>
+                <td><a class="btn btn-primary" th:href="@{'/uniTutors/edit/'+${uniTutor.id}}">Update</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/uniTutors/delete/'+${uniTutor.id}}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/uniTutors/view/'+${uniTutor.id}}">Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

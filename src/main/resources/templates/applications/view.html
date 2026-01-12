@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application details</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 class="text-white" th:unless="${appl}">There is no such application!</h3>
+
+<div class="container mt-5">
+    <h1 class="text-white">Application details</h1>
+    <p class="text-white"><strong>Application Id:</strong> <span th:text="${appl.id}">Application Id</span></p>
+    <p class="text-white"><strong>Topic:</strong> <span th:text="${appl.topic}">Topic</span></p>
+    <p class="text-white"><strong>Aims:</strong> <span th:text="${appl.aims}">Aims</span></p>
+    <p class="text-white"><strong>Problems:</strong> <span th:text="${appl.problems}">Problems</span></p>
+    <p class="text-white"><strong>Technologies:</strong> <span th:text="${appl.technologies}">Technologies</span></p>
+    <p class="text-white"><strong>Status:</strong> <span th:text="${appl.status}">Application status</span></p>
+    <p class="text-white"><strong>Student id:</strong> <span th:text="${appl.studentId}">Student Id</span></p>
+    <p class="text-white"><strong>Supervisor id:</strong> <span th:text="${appl.tutorId}">Supervisor Id</span></p>
+</div>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

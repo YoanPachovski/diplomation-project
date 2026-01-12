@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a University Tutor</title>
+</head>
+<body>
+    <style th:replace="~{fragments :: style}"></style>
+    <div th:replace="~{fragments :: head}"></div>
+    <div th:replace="~{fragments :: header-nav}"></div>
+    <h4 class="text-white">Create a University Tutor</h4>
+    <form th:action="@{/uniTutors/save}" th:object="${uniTutor}" method="post">
+        <div class="form-group">
+            <label class="text-white"for="name">Name: </label>
+            <input class = "form-control" type="text" id="name" th:field="*{name}"/>
+            <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+            <label class="text-white"for="positionType">Position: </label>
+            <select id="positionType" th:field="*{positionType}">
+                <option th:each="positionType : ${positionTypes}"
+                        th:value="${positionType}"
+                        th:text="${positionType}"
+                        th:selected="${positionType == uniTutor.positionType}">
+                </option>
+            </select>
+            <span class="text-danger" th:if="${#fields.hasErrors('positionType')}" th:errors="*{positionType}">Position type Error</span>
+        </div>
+        <button class="btn btn-info mx-2 my-2" type="submit">Save university tutor</button>
+    </form>
+    <footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

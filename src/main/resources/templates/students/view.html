@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student details</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${student}">There is no such student!</h3>
+
+<div class="container mt-5">
+    <h1 class="text-white">Student details</h1>
+    <p class="text-white"><strong>Id:</strong> <span th:text="${student.id}">Student Id</span></p>
+    <p class="text-white"><strong>Name:</strong> <span th:text="${student.name}">Student Name</span></p>
+    <p class="text-white"><strong>Faculty Number:</strong> <span th:text="${student.fNumber}">Faculty Number</span></p>
+</div>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

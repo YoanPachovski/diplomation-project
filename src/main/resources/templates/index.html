@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h1 class="text-center text-white">Diplomation system</h1>
+<img src="../static/images/graduation_dog.jpg" class="img-fluid mx-auto d-block w-25"
+        th:src="@{/images/graduation_dog.jpg}" alt="Dog">
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>University tutor details</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${uniTutor}">There is no such university tutor!</h3>
+
+<div class="container mt-5">
+    <h1 class="text-white">University tutor details</h1>
+    <p class="text-white"><strong>Id:</strong> <span th:text="${uniTutor.id}">Tutor Id</span></p>
+    <p class="text-white"><strong>Name:</strong> <span th:text="${uniTutor.name}">Tutor Name</span></p>
+    <p class="text-white"><strong>Faculty Number:</strong> <span th:text="${uniTutor.positionType}">Position</span></p>
+</div>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Defenses!</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${defenses} and ${defenses.size()}" class="text-white">There are no defenses!</h3>
+<button class="btn btn-info mx-2 my-2" type="button">
+    <a th:href="@{'/defenses/create'}" class="text-black text-decoration-none">
+        Create defense
+    </a>
+</button>
+<form th:action="@{/defenses/by-grade}" method="get">
+    <label for="grade" class="text-white " >Grade:</label>
+    <select id="grade" name="grade">
+        <option th:each="i : ${#numbers.sequence(2, 6)}"
+                th:value="${i}" th:text="${i}">
+        </option>
+    </select>
+    <button class="btn btn-info mx-2 my-2" type="submit">Filter by grade</button>
+</form>
+<table class="table table-primary table-striped table-hover table-bordered border-danger-subtle">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Reviewer Id</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Update Defense</th>
+                <th scope="col">Delete Defense</th>
+                <th scope="col">Defense Info</th>
+            </tr>
+        </thead>
+        <tbody class = "table-group-divider">
+            <tr th:each="defense: ${defenses}">
+                <td th:text="${defense.id}"></td>
+                <td th:text="${defense.date}"></td>
+                <td th:text="${defense.reviewId}"></td>
+                <td th:text="${defense.grade}"></td>
+
+                <td><a class="btn btn-primary" th:href="@{'/defenses/edit/'+${defense.id}}">Update</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/defenses/delete/'+${defense.id}}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/defenses/view/'+${defense.id}}">Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

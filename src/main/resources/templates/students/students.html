@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students!</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${students} and ${students.size()}" class="text-white">There are no students!</h3>
+<button class="btn btn-info mx-2 my-2" type="button">
+    <a th:href="@{'/students/create'}" class="text-black text-decoration-none">
+        Create student
+    </a>
+</button>
+<table class="table table-primary table-striped table-hover table-bordered border-danger-subtle">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">fnum</th>
+                <th scope="col">Update Student</th>
+                <th scope="col">Delete Student</th>
+                <th scope="col">Student Info</th>
+            </tr>
+        </thead>
+        <tbody class = "table-group-divider">
+            <tr th:each="student: ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.fNumber}"></td>
+                <td><a class="btn btn-primary" th:href="@{'/students/edit/'+${student.id}}">Update</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/students/delete/'+${student.id}}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/students/view/'+${student.id}}">Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Applications!</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${applications} and ${applications.size()}" class="text-white">There are no applications!</h3>
+<button class="btn btn-info mx-2 my-2" type="button">
+    <a th:href="@{'/applications/create'}" class="text-black text-decoration-none">
+        Create application
+    </a>
+</button>
+
+<form th:action="@{/applications/by-tutor}" method="get">
+    <label for="tutorId" class="text-white " >Tutor:</label>
+    <select id="tutorId" name="tutorId">
+        <option th:each="tutorId : ${tutorIds}"
+                th:value="${tutorId}"
+                th:text="${tutorId}">
+        </option>
+    </select>
+    <button class="btn btn-info mx-2 my-2" type="submit">Filter by tutor</button>
+</form>
+<form th:action="@{/applications/by-status}" method="get">
+    <label for="status" class="text-white">
+        Status:
+    </label>
+    <select id="status" name="status">
+        <option th:each="status : ${statuses}"
+                th:value="${status}"
+                th:text="${status}">
+        </option>
+    </select>
+    <button class="btn btn-info mx-2 my-2" type="submit">Filter by status</button>
+</form>
+
+<table class="table table-primary table-striped table-hover table-bordered border-danger-subtle">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Aims</th>
+                <th scope="col">Problems</th>
+                <th scope="col">Technologies</th>
+                <th scope="col">Status</th>
+                <th scope="col">Student id</th>
+                <th scope="col">Supervisor id</th>
+                <th scope="col">Update Application</th>
+                <th scope="col">Delete Application</th>
+                <th scope="col">Application Info</th>
+            </tr>
+        </thead>
+        <tbody class = "table-group-divider">
+            <tr th:each="appl: ${applications}">
+                <td th:text="${appl.id}"></td>
+                <td th:text="${appl.topic}"></td>
+                <td th:text="${appl.aims}"></td>
+                <td th:text="${appl.problems}"></td>
+                <td th:text="${appl.technologies}"></td>
+                <td th:text="${appl.status}"></td>
+                <td th:text="${appl.studentId}"></td>
+                <td th:text="${appl.tutorId}"></td>
+
+                <td><a class="btn btn-primary" th:href="@{'/applications/edit/'+${appl.id}}">Update</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/applications/delete/'+${appl.id}}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/applications/view/'+${appl.id}}">Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

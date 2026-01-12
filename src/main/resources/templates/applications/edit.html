@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update application</title>
+</head>
+<body>
+    <style th:replace="~{fragments :: style}"></style>
+    <div th:replace="~{fragments :: head}"></div>
+    <div th:replace="~{fragments :: header-nav}"></div>
+
+    <h4 class="text-white">Update application</h4>
+    <form th:action="@{'/applications/update/' + ${appl.id}}" method="post">
+        <input type="hidden" th:field="*{appl.id}"/>
+        <label class="text-white" for="topic">Topic:</label>
+        <input type="text" id="topic" th:field="*{appl.topic}"/>
+
+        <label class="text-white" for="aims">Aims:</label>
+        <input type="text" id="aims" th:field="*{appl.aims}"/>
+
+        <label class="text-white" for="problems">Problems:</label>
+        <input type="text" id="problems" th:field="*{appl.problems}"/>
+
+        <label class="text-white" for="technologies">Technologies:</label>
+        <input type="text" id="technologies" th:field="*{appl.technologies}"/>
+
+        <label class="text-white" for="status">Status:</label>
+        <select id="status" th:field="*{appl.status}">
+            <option th:each="status : ${statuses}"
+                    th:value="${status}"
+                    th:text="${status}"
+                    th:selected="${status == appl.status}">
+            </option>
+        </select>
+
+        <label class="text-white" for="studentId">Student id:</label>
+        <select id="studentId" th:field="*{appl.studentId}">
+            <option th:each="studentId : ${studentIds}"
+                    th:value="${studentId}"
+                    th:text="${studentId}"
+                    th:selected="${studentId == appl.studentId}">
+            </option>
+        </select>
+
+        <label class="text-white" for="tutorId">Supervisor id:</label>
+        <select id="tutorId" th:field="*{appl.tutorId}">
+            <option th:each="tutorId : ${tutorIds}"
+                    th:value="${tutorId}"
+                    th:text="${tutorId}"
+                    th:selected="${tutorId == appl.tutorId}">
+            </option>
+        </select>
+
+        <button class="btn btn-info mx-2 my-2" type="submit">Update application</button>
+    </form>
+    <footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

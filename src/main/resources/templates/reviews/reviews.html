@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews!</title>
+</head>
+<style th:replace="~{fragments :: style}"></style>
+<div th:replace="~{fragments :: head}"></div>
+<div th:replace="~{fragments :: header-nav}"></div>
+<h3 th:unless="${reviews} and ${reviews.size()}" class="text-white">There are no reviews!</h3>
+<button class="btn btn-info mx-2 my-2" type="button">
+    <a th:href="@{'/reviews/create'}" class="text-black text-decoration-none">
+        Create review
+    </a>
+</button>
+<form th:action="@{/reviews/by-reviewer}" method="get">
+    <label for="reviewerId" class="text-white " >Reviewer:</label>
+    <select id="reviewerId" name="reviewerId">
+        <option th:each="reviewerId : ${reviewerIds}"
+                th:value="${reviewerId}"
+                th:text="${reviewerId}">
+        </option>
+    </select>
+    <button class="btn btn-info mx-2 my-2" type="submit">Filter by tutor</button>
+</form>
+<table class="table table-primary table-striped table-hover table-bordered border-danger-subtle">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Date of submission</th>
+                <th scope="col">Writer Comment</th>
+                <th scope="col">Conclusion</th>
+                <th scope="col">Reviewer Id</th>
+                <th scope="col">Thesis Id</th>
+                <th scope="col">Passed?</th>
+                <th scope="col">Update Review</th>
+                <th scope="col">Delete Review</th>
+                <th scope="col">Review Info</th>
+            </tr>
+        </thead>
+        <tbody class = "table-group-divider">
+            <tr th:each="review: ${reviews}">
+                <td th:text="${review.id}"></td>
+                <td th:text="${review.dateOfSubmission}"></td>
+                <td th:text="${review.text}"></td>
+                <td th:text="${review.conclusion}"></td>
+                <td th:text="${review.reviewerId}"></td>
+                <td th:text="${review.thesisId}"></td>
+                <td th:text="${review.passed}"></td>
+
+                <td><a class="btn btn-primary" th:href="@{'/reviews/edit/'+${review.id}}">Update</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/reviews/delete/'+${review.id}}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/reviews/view/'+${review.id}}">Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>
