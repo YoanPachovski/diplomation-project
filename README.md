@@ -13,11 +13,19 @@
 1) Thymeleaf - front-end part <br>
 2) Spring Boot - back-end part <br>
 3) Gradle - used for package management and automation <br>
+4) MySQL Workbench - database part <br>
 
 <h1> About the project in a nutshell </h1>
-This is a diplomation system. The process is as follows:
-1) University students apply for a thesis
-2) If an application is accepted, the university student is allowed to create the graduation thesis.
-3) A reviewer (who is a university tutor) reviews the thesis. If it has a positive grade, the student can proceed to the defense part.
-4) If a student passes the defense part, he can graduate in peace.
+This is a diplomation system. The process is as follows:<br>
+1) University students apply for a thesis<br>
+2) If an application is accepted, the university student is allowed to create the graduation thesis.<br>
+3) A reviewer (who is a university tutor) reviews the thesis. If it has a positive grade, the student can proceed to the defense part.<br>
+4) If a student passes the defense part, he can graduate in peace.<br>
+
+<br>
+
+The database has the following structure: <br>
+<br>
 <img width="949" height="784" alt="image" src="https://github.com/user-attachments/assets/02a968a3-d96d-4076-ae6c-2354502dfe60" />
+
+<br>
