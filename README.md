@@ -5,8 +5,8 @@
 2) Create a database connection (in MySQL Workbench) <br>
 3) Update database credentials in the application.properties file <br>
 4) If you would like to initialize database with mock data from the data.sql file, uncomment lines 16 to 19 in application.properties <br>
-5) Run application using IntelliJ 
-6) Open website on http://localhost:8081
+5) Run application using IntelliJ <br>
+6) Open website on http://localhost:8081 <br>
 </p>
 
 <h1> Technologies </h1>
