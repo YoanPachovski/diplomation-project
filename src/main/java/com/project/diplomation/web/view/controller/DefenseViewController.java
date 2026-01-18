@@ -64,7 +64,7 @@ public class DefenseViewController {
     public String showCreateDefenseForm(Model model) {
         model.addAttribute("defense", new CreateDefenseDTO());
 
-        List<Long> reviewIds = reviewService.getAllReviews()
+        List<Long> reviewIds = reviewService.getReviewsByIsPassed()
                 .stream()
                 .map(ReviewDTO::getId)
                 .toList();

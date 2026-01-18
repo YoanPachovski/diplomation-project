@@ -1,23 +1,16 @@
 package com.project.diplomation.service;
 
-import com.project.diplomation.data.models.dto.ApplicationDTO;
 import com.project.diplomation.data.models.dto.CreateReviewDTO;
 import com.project.diplomation.data.models.dto.ReviewDTO;
-import com.project.diplomation.data.models.dto.ThesisDTO;
 import com.project.diplomation.data.models.entities.Review;
-import com.project.diplomation.data.models.entities.Thesis;
-import com.project.diplomation.data.models.entities.UniversityTutor;
 import com.project.diplomation.data.repositories.ReviewRepo;
 import com.project.diplomation.data.repositories.ThesisRepo;
 import com.project.diplomation.data.repositories.UniversityTutorRepo;
 import com.project.diplomation.exception.ReviewNotFoundException;
-import com.project.diplomation.exception.ThesisNotFoundException;
 import com.project.diplomation.util.MapperUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -99,5 +92,11 @@ public class ReviewService {
                         this.reviewRepo.findByReviewerId(reviewerId), ReviewDTO.class);
 
 
+    }
+
+    public List<ReviewDTO> getReviewsByIsPassed() {
+        return this.mapperUtil
+                .mapList(
+                        this.reviewRepo.findReviewByIsPassed(true), ReviewDTO.class);
     }
 }

@@ -9,13 +9,17 @@
     <div th:replace="~{fragments :: head}"></div>
     <div th:replace="~{fragments :: header-nav}"></div>
 
-    <h4 class="text-white">Update Student</h4>
+    <h4 class="text-white mx-2 my-2">Update Student</h4>
     <form th:action="@{'/students/update/' + ${student.id}}" method="post">
         <input type="hidden" th:field="*{student.id}"/>
-        <label class="text-white"for="name">Name:</label>
-        <input type="text" id="name" th:field="*{student.name}"/>
-        <label class="text-white"for="FNumber">FNumber: </label>
-        <input type="text" id="FNumber" th:field="*{student.FNumber}"/>
+        <label class="text-white mx-2 my-2"for="name">Name:</label>
+        <input type="text" id="name" th:field="*{student.name}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        />
+        <label class="text-white mx-2 my-2"for="FNumber">FNumber: </label>
+        <input type="text" id="FNumber" th:field="*{student.FNumber}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        />
         <button class="btn btn-info mx-2 my-2" type="submit">Update Student</button>
     </form>
     <footer th:replace="~{fragments :: footer}"></footer>

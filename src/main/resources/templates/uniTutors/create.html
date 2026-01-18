@@ -9,14 +9,17 @@
     <style th:replace="~{fragments :: style}"></style>
     <div th:replace="~{fragments :: head}"></div>
     <div th:replace="~{fragments :: header-nav}"></div>
-    <h4 class="text-white">Create a University Tutor</h4>
+    <h4 class="text-white mx-2 my-2">Create a University Tutor</h4>
     <form th:action="@{/uniTutors/save}" th:object="${uniTutor}" method="post">
         <div class="form-group">
-            <label class="text-white"for="name">Name: </label>
-            <input class = "form-control" type="text" id="name" th:field="*{name}"/>
+            <label class="text-white mx-2 my-2"for="name">Name: </label>
+            <input class = "form-control mx-2 my-2" type="text" id="name" th:field="*{name}"
+                   th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"
+            />
             <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
-            <label class="text-white"for="positionType">Position: </label>
-            <select id="positionType" th:field="*{positionType}">
+            <label class="text-white mx-2 my-2"for="positionType">Position: </label>
+            <select id="positionType" th:field="*{positionType}"
+                    th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
                 <option th:each="positionType : ${positionTypes}"
                         th:value="${positionType}"
                         th:text="${positionType}"

@@ -16,7 +16,7 @@ INSERT INTO `diplomation-demo`.`uni_tutor` (`name`, `position_type`) VALUES ('Li
 INSERT INTO `diplomation-demo`.`uni_tutor` (`name`, `position_type`) VALUES ('Karadjov', '2');
 INSERT INTO `diplomation-demo`.`uni_tutor` (`name`, `position_type`) VALUES ('Viktorov', '3');
 INSERT INTO `diplomation-demo`.`uni_tutor` (`name`, `position_type`) VALUES ('Gramadov', '0');
-INSERT INTO `diplomation-demo`.`uni_tutor` (`name`, `position_type`) VALUES ('Kotkova', '1');
+INSERT INTO `diplomation-demo`.`uni_tutor` (`name`, `position_type`) VALUES ('Velichkoz', '1');
 
 -- APPLICATIONS
 INSERT INTO `diplomation-demo`.`application` (`aims`, `problems`, `status`, `technologies`, `topic`, `student_id`, `uni_tutor_id`)

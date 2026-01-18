@@ -9,14 +9,18 @@
     <style th:replace="~{fragments :: style}"></style>
     <div th:replace="~{fragments :: head}"></div>
     <div th:replace="~{fragments :: header-nav}"></div>
-    <h4 class="text-white">Create a Student</h4>
+    <h4 class="text-white mx-2 my-2">Create a Student</h4>
     <form th:action="@{/students/save}" th:object="${student}" method="post">
         <div class="form-group">
-            <label class="text-white"for="name">Name: </label>
-            <input class = "form-control" type="text" id="name" th:field="*{name}"/>
+            <label class="text-white mx-2 my-2"for="name">Name: </label>
+            <input class = "form-control mx-2 my-2" type="text" id="name" th:field="*{name}"
+                   th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"
+            />
             <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
-            <label class="text-white"for="FNumber">FNumber: </label>
-            <input class = "form-control" type="text" id="FNumber" th:field="*{FNumber}"/>
+            <label class="text-white mx-2 my-2"for="FNumber">FNumber: </label>
+            <input class = "form-control mx-2 my-2" type="text" id="FNumber" th:field="*{FNumber}"
+                   th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"
+            />
             <span class="text-danger" th:if="${#fields.hasErrors('FNumber')}" th:errors="*{FNumber}">Faculty number Error</span>
         </div>
         <button class="btn btn-info mx-2 my-2" type="submit">Save Student</button>

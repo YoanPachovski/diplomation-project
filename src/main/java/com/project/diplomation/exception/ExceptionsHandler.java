@@ -12,11 +12,5 @@ public class ExceptionsHandler {
         model.addAttribute("message", exception.getMessage());
         return "/errors/errors";
     }
-
-//    @ExceptionHandler({MedicineNotFoundException.class, RecipeNotFoundException.class})
-//    public String handleException(MedicineNotFoundException exception, Model model) {
-//        model.addAttribute("message", exception.getMessage());
-//        return "/errors/not-found-errors";
-//    }
 }
 

@@ -2,6 +2,7 @@ package com.project.diplomation.web.view.controller;
 
 import com.project.diplomation.data.models.dto.*;
 import com.project.diplomation.data.models.entities.*;
+import com.project.diplomation.data.models.enums.ApplicationStatus;
 import com.project.diplomation.data.repositories.ApplicationRepo;
 import com.project.diplomation.service.ApplicationService;
 import com.project.diplomation.service.ThesisService;
@@ -70,7 +71,7 @@ public class ThesisViewController {
     public String showCreateApplicationForm(Model model) {
         model.addAttribute("thesis", new CreateThesisDTO());
 
-        List<Long> applicationIds = applicationService.getAllApplications()
+        List<Long> applicationIds = applicationService.getApplicationsByStatus(ApplicationStatus.ACCEPTED)
                 .stream()
                 .map(ApplicationDTO::getId)
                 .toList();
