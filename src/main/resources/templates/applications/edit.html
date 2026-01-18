@@ -9,23 +9,31 @@
     <div th:replace="~{fragments :: head}"></div>
     <div th:replace="~{fragments :: header-nav}"></div>
 
-    <h4 class="text-white">Update application</h4>
+    <h4 class="text-white mx-2 my-2">Update application</h4>
     <form th:action="@{'/applications/update/' + ${appl.id}}" method="post">
         <input type="hidden" th:field="*{appl.id}"/>
-        <label class="text-white" for="topic">Topic:</label>
-        <input type="text" id="topic" th:field="*{appl.topic}"/>
+        <label class="text-white mx-2 my-2" for="topic">Topic:</label>
+        <input type="text" id="topic" th:field="*{appl.topic}"
+               th:style="'border:3px solid black; border-radius:8px; padding:4px;'"
+        />
 
-        <label class="text-white" for="aims">Aims:</label>
-        <input type="text" id="aims" th:field="*{appl.aims}"/>
+        <label class="text-white mx-2 my-2" for="aims">Aims:</label>
+        <input type="text" id="aims" th:field="*{appl.aims}"
+               th:style="'border:3px solid black; border-radius:8px; padding:4px;'"
+        />
 
-        <label class="text-white" for="problems">Problems:</label>
-        <input type="text" id="problems" th:field="*{appl.problems}"/>
+        <label class="text-white mx-2 my-2" for="problems">Problems:</label>
+        <input type="text" id="problems" th:field="*{appl.problems}"
+               th:style="'border:3px solid black; border-radius:8px; padding:4px;'"
+        />
 
-        <label class="text-white" for="technologies">Technologies:</label>
-        <input type="text" id="technologies" th:field="*{appl.technologies}"/>
-
-        <label class="text-white" for="status">Status:</label>
-        <select id="status" th:field="*{appl.status}">
+        <label class="text-white mx-2 my-2" for="technologies">Technologies:</label>
+        <input type="text" id="technologies" th:field="*{appl.technologies}"
+               th:style="'border:3px solid black; border-radius:8px; padding:4px;'"
+        >
+        <label class="text-white mx-2 my-2" for="status">Status:</label>
+        <select id="status" th:field="*{appl.status}"
+                th:style="'border:3px solid black; border-radius:8px; padding:4px;'">
             <option th:each="status : ${statuses}"
                     th:value="${status}"
                     th:text="${status}"
@@ -33,8 +41,9 @@
             </option>
         </select>
 
-        <label class="text-white" for="studentId">Student id:</label>
-        <select id="studentId" th:field="*{appl.studentId}">
+        <label class="text-white mx-2 my-2" for="studentId">Student id:</label>
+        <select id="studentId" th:field="*{appl.studentId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:4px;'">
             <option th:each="studentId : ${studentIds}"
                     th:value="${studentId}"
                     th:text="${studentId}"
@@ -42,8 +51,9 @@
             </option>
         </select>
 
-        <label class="text-white" for="tutorId">Supervisor id:</label>
-        <select id="tutorId" th:field="*{appl.tutorId}">
+        <label class="text-white mx-2 my-2" for="tutorId">Supervisor id:</label>
+        <select id="tutorId" th:field="*{appl.tutorId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:4px;'">
             <option th:each="tutorId : ${tutorIds}"
                     th:value="${tutorId}"
                     th:text="${tutorId}"

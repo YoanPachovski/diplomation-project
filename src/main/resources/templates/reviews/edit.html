@@ -9,23 +9,28 @@
     <div th:replace="~{fragments :: head}"></div>
     <div th:replace="~{fragments :: header-nav}"></div>
 
-    <h4 class="text-white">Update Review</h4>
+    <h4 class="text-white mx-2 my-2">Update Review</h4>
     <form th:action="@{'/reviews/update/' + ${review.id}}" method="post">
         <input type="hidden" th:field="*{review.id}"/>
-        <label class="text-white" for="title">Text:</label>
-        <input type="text" id="title" th:field="*{review.text}"/>
+        <label class="text-white mx-2 my-2" for="title">Text:</label>
+        <input type="text" id="title" th:field="*{review.text}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"/>
 
-        <label class="text-white" for="text">Conclusion:</label>
-        <input type="text" id="text" th:field="*{review.conclusion}"/>
+        <label class="text-white mx-2 my-2" for="text">Conclusion:</label>
+        <input type="text" id="text" th:field="*{review.conclusion}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"/>
 
-        <label class="text-white" for="dateOfSubmission">Date of submission:</label>
-        <input type="date" id="dateOfSubmission" th:field="*{review.dateOfSubmission}"/>
+        <label class="text-white mx-2 my-2" for="dateOfSubmission">Date of submission:</label>
+        <input type="date" id="dateOfSubmission" th:field="*{review.dateOfSubmission}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"/>
 
-        <label class="text-white" for="isPassed">Is it passed?: </label>
-        <input type="checkbox" id="isPassed" th:field="*{review.passed}"/>
+        <label class="text-white mx-2 my-2" for="isPassed">Is it passed?: </label>
+        <input type="checkbox" id="isPassed" th:field="*{review.passed}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"/>
 
-        <label class="text-white" for="reviewerId">Reviewer Id: </label>
-        <select id="reviewerId" th:field="*{review.reviewerId}">
+        <label class="text-white mx-2 my-2" for="reviewerId">Reviewer Id: </label>
+        <select id="reviewerId" th:field="*{review.reviewerId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="reviewerId : ${reviewerIds}"
                     th:value="${reviewerId}"
                     th:text="${reviewerId}"
@@ -33,8 +38,9 @@
             </option>
         </select>
 
-        <label class="text-white" for="thesisId">Thesis Id: </label>
-        <select id="thesisId" th:field="*{review.thesisId}">
+        <label class="text-white mx-1 my-2" for="thesisId">Thesis Id: </label>
+        <select id="thesisId" th:field="*{review.thesisId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="thesisId : ${thesisIds}"
                     th:value="${thesisId}"
                     th:text="${thesisId}"
@@ -42,7 +48,7 @@
             </option>
         </select>
 
-        <button class="btn btn-info mx-2 my-2" type="submit">Update review</button>
+        <button class="btn btn-info mx-1 my-2" type="submit">Update review</button>
     </form>
     <footer th:replace="~{fragments :: footer}"></footer>
 </body>

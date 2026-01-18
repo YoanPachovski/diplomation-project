@@ -15,8 +15,9 @@
 </button>
 
 <form th:action="@{/applications/by-tutor}" method="get">
-    <label for="tutorId" class="text-white " >Tutor:</label>
-    <select id="tutorId" name="tutorId">
+    <label for="tutorId" class="text-white mx-2 my-2" >Tutor:</label>
+    <select id="tutorId" name="tutorId"
+            th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
         <option th:each="tutorId : ${tutorIds}"
                 th:value="${tutorId}"
                 th:text="${tutorId}">
@@ -25,10 +26,11 @@
     <button class="btn btn-info mx-2 my-2" type="submit">Filter by tutor</button>
 </form>
 <form th:action="@{/applications/by-status}" method="get">
-    <label for="status" class="text-white">
+    <label for="status" class="text-white mx-2 my-2">
         Status:
     </label>
-    <select id="status" name="status">
+    <select id="status" name="status"
+            th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
         <option th:each="status : ${statuses}"
                 th:value="${status}"
                 th:text="${status}">

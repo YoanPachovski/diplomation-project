@@ -9,20 +9,28 @@
     <div th:replace="~{fragments :: head}"></div>
     <div th:replace="~{fragments :: header-nav}"></div>
 
-    <h4 class="text-white">Update Thesis</h4>
+    <h4 class="text-white mx-2 my-2">Update Thesis</h4>
     <form th:action="@{'/theses/update/' + ${thesis.id}}" method="post">
         <input type="hidden" th:field="*{thesis.id}"/>
-        <label class="text-white"for="title">Title:</label>
-        <input type="text" id="title" th:field="*{thesis.title}"/>
+        <label class="text-white mx-2 my-2"for="title">Title:</label>
+        <input type="text" id="title" th:field="*{thesis.title}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        />
 
-        <label class="text-white"for="text">Text:</label>
-        <input type="text" id="text" th:field="*{thesis.text}"/>
+        <label class="text-white mx-2 my-2"for="text">Text:</label>
+        <input type="text" id="text" th:field="*{thesis.text}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        />
 
-        <label class="text-white"for="dateOfSubmission">Date of submission:</label>
-        <input type="date" id="dateOfSubmission" th:field="*{thesis.dateOfSubmission}"/>
+        <label class="text-white mx-2 my-2"for="dateOfSubmission">Date of submission:</label>
+        <input type="date" id="dateOfSubmission" th:field="*{thesis.dateOfSubmission}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        />
 
-        <label class="text-white"for="applicationId">Application id:</label>
-        <select id="applicationId" th:field="*{thesis.applicationId}">
+        <label class="text-white mx-2 my-2"for="applicationId">Application id:</label>
+        <select id="applicationId" th:field="*{thesis.applicationId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        >
             <option th:each="applicationId : ${applicationIds}"
                     th:value="${applicationId}"
                     th:text="${applicationId}"

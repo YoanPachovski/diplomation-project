@@ -60,6 +60,7 @@ public class ApplicationViewController {
                 .stream()
                 .map(ApplicationDTO::getTutorId)
                 .distinct()
+                .sorted()
                 .toList();
         model.addAttribute("tutorIds", tutorIds);
         // returns the name of the template page(view) to be rendered

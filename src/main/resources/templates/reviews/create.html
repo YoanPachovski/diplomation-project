@@ -8,23 +8,31 @@
 <style th:replace="~{fragments :: style}"></style>
 <div th:replace="~{fragments :: head}"></div>
 <div th:replace="~{fragments :: header-nav}"></div>
-<h4 class="text-white">Create a Review</h4>
+<h4 class="text-white mx-2 my-2">Create a Review</h4>
 <form th:action="@{/reviews/save}" th:object="${review}" method="post">
     <div class="form-group">
-        <label  class="text-white" for="text">Text: </label>
-        <input class = "form-control" type="text" id="text" th:field="*{text}"/>
+        <label  class="text-white mx-2 my-2" for="text">Text: </label>
+        <input class = "form-control mx-2 my-2" type="text" id="text" th:field="*{text}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"
+        />
         <span class="text-danger" th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Text Error</span>
 
-        <label class="text-white" for="conclusion">Conclusion: </label>
-        <input class = "form-control" type="text" id="conclusion" th:field="*{conclusion}"/>
+        <label class="text-white mx-2 my-2" for="conclusion">Conclusion: </label>
+        <input class = "form-control mx-2 my-2" type="text" id="conclusion" th:field="*{conclusion}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"
+        />
         <span class="text-danger" th:if="${#fields.hasErrors('conclusion')}" th:errors="*{conclusion}">Conclusion Error</span>
 
-        <label class="text-white" for="isPassed">Is it passed?: </label>
-        <input type="checkbox" id="isPassed" th:field="*{passed}"/>
+        <label class="text-white mx-2 my-2" for="isPassed">Is it passed?: </label>
+        <input type="checkbox" id="isPassed" th:field="*{passed}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        />
         <span class="text-danger" th:if="${#fields.hasErrors('passed')}" th:errors="*{passed}">isPassed Error</span>
 
-        <label class="text-white" for="reviewerId">Reviewer Id: </label>
-        <select id="reviewerId" th:field="*{reviewerId}">
+        <label class="text-white mx-2 my-2" for="reviewerId">Reviewer Id: </label>
+        <select id="reviewerId" th:field="*{reviewerId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        >
             <option th:each="reviewerId : ${reviewerIds}"
                     th:value="${reviewerId}"
                     th:text="${reviewerId}"
@@ -32,8 +40,10 @@
             </option>
         </select>
 
-        <label class="text-white" for="thesisId">Thesis Id: </label>
-        <select id="thesisId" th:field="*{thesisId}">
+        <label class="text-white mx-2 my-2" for="thesisId">Thesis Id: </label>
+        <select id="thesisId" th:field="*{thesisId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'"
+        >
             <option th:each="thesisId : ${thesisIds}"
                     th:value="${thesisId}"
                     th:text="${thesisId}"

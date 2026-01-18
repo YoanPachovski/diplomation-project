@@ -58,6 +58,7 @@ public class ReviewViewController {
                 .stream()
                 .map(ReviewDTO::getReviewerId)
                 .distinct()
+                .sorted()
                 .toList();
         model.addAttribute("reviewerIds", reviewerIds);
 

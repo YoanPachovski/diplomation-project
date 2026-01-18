@@ -8,27 +8,32 @@
 <style th:replace="~{fragments :: style}"></style>
 <div th:replace="~{fragments :: head}"></div>
 <div th:replace="~{fragments :: header-nav}"></div>
-<h4 class="text-white">Create an Application</h4>
+<h4 class="text-white mx-2 my-2">Create an Application</h4>
 <form th:action="@{/applications/save}" th:object="${appl}" method="post">
     <div class="form-group">
-        <label class="text-white" for="topic" >Topic: </label>
-        <input class = "form-control" type="text" id="topic" th:field="*{topic}"/>
+        <label class="text-white mx-2 my-2" for="topic" >Topic: </label>
+        <input class = "form-control mx-2 my-2" type="text" id="topic" th:field="*{topic}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"/>
         <span class="text-danger" th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}">Topic Error</span>
 
-        <label class="text-white" for="aims" >Aims: </label>
-        <input class = "form-control" type="text" id="aims" th:field="*{aims}"/>
+        <label class="text-white mx-2 my-2" for="aims" >Aims: </label>
+        <input class = "form-control mx-2 my-2" type="text" id="aims" th:field="*{aims}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"/>
         <span class="text-danger" th:if="${#fields.hasErrors('aims')}" th:errors="*{aims}">Aims Error</span>
 
-        <label class="text-white" for="problems" >Problems: </label>
-        <input class = "form-control" type="text" id="problems" th:field="*{problems}"/>
+        <label class="text-white mx-2 my-2" for="problems" >Problems: </label>
+        <input class = "form-control mx-2 my-2" type="text" id="problems" th:field="*{problems}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"/>
         <span class="text-danger" th:if="${#fields.hasErrors('problems')}" th:errors="*{problems}">Problems Error</span>
 
-        <label class="text-white" for="technologies" >Technologies: </label>
-        <input class = "form-control" type="text" id="technologies" th:field="*{technologies}"/>
+        <label class="text-white mx-2 my-2" for="technologies" >Technologies: </label>
+        <input class = "form-control mx-2 my-2" type="text" id="technologies" th:field="*{technologies}"
+               th:style="'border:3px solid black; border-radius:8px; padding:2px; width:80%;'"/>
         <span class="text-danger" th:if="${#fields.hasErrors('technologies')}" th:errors="*{technologies}">Technologies Error</span>
 
-        <label class="text-white" for="status" >Status: </label>
-        <select id="status" th:field="*{status}">
+        <label class="text-white mx-2 my-2" for="status" >Status: </label>
+        <select id="status" th:field="*{status}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="status : ${statuses}"
                     th:value="${status}"
                     th:text="${status}"
@@ -39,8 +44,9 @@
 
         <br>
 
-        <label class="text-white" for="studentId">Student id: </label>
-        <select id="studentId" th:field="*{studentId}">
+        <label class="text-white mx-2 my-2" for="studentId">Student id: </label>
+        <select id="studentId" th:field="*{studentId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="studentId : ${studentIds}"
                     th:value="${studentId}"
                     th:text="${studentId}"
@@ -50,8 +56,9 @@
 <!--        <span class="text-danger" th:if="${#fields.hasErrors('studentId')}" th:errors="*{appl.studentId}">Student id Error</span>-->
         <br>
 
-        <label class="text-white" for="tutorId">Supervisor id: </label>
-        <select id="tutorId" th:field="*{tutorId}">
+        <label class="text-white mx-2 my-2" for="tutorId">Supervisor id: </label>
+        <select id="tutorId" th:field="*{tutorId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="tutorId : ${tutorIds}"
                     th:value="${tutorId}"
                     th:text="${tutorId}"

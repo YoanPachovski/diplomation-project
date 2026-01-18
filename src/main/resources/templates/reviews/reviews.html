@@ -14,8 +14,9 @@
     </a>
 </button>
 <form th:action="@{/reviews/by-reviewer}" method="get">
-    <label for="reviewerId" class="text-white " >Reviewer:</label>
-    <select id="reviewerId" name="reviewerId">
+    <label for="reviewerId" class="text-white mx-2 my-2" >Reviewer:</label>
+    <select id="reviewerId" name="reviewerId"
+            th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
         <option th:each="reviewerId : ${reviewerIds}"
                 th:value="${reviewerId}"
                 th:text="${reviewerId}">
@@ -28,7 +29,7 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Date of submission</th>
-                <th scope="col">Writer Comment</th>
+                <th scope="col">Text</th>
                 <th scope="col">Conclusion</th>
                 <th scope="col">Reviewer Id</th>
                 <th scope="col">Thesis Id</th>

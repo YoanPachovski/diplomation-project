@@ -8,20 +8,22 @@
 <style th:replace="~{fragments :: style}"></style>
 <div th:replace="~{fragments :: head}"></div>
 <div th:replace="~{fragments :: header-nav}"></div>
-<h4 class="text-white">Create a Defense</h4>
+<h4 class="text-white mx-2 my-2">Create a Defense</h4>
 <form th:action="@{/defenses/save}" th:object="${defense}" method="post">
     <div class="form-group">
 
-        <label class="text-white"for="grade">Grade: </label>
-        <select id="grade" th:field="*{grade}">
+        <label class="text-white mx-2 my-2"for="grade">Grade: </label>
+        <select id="grade" th:field="*{grade}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="i : ${#numbers.sequence(2, 6)}"
                     th:value="${i}" th:text="${i}">
             </option>
         </select>
         <span class="text-danger" th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}">Grade Error</span>
 
-        <label class="text-white" for="reviewId">Review Id: </label>
-        <select id="reviewId" th:field="*{reviewId}">
+        <label class="text-white mx-2 my-2" for="reviewId">Review Id: </label>
+        <select id="reviewId" th:field="*{reviewId}"
+                th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
             <option th:each="reviewId : ${reviewIds}"
                     th:value="${reviewId}"
                     th:text="${reviewId}"

@@ -14,8 +14,9 @@
     </a>
 </button>
 <form th:action="@{/theses/by-title}" method="get">
-    <label class="text-white"for="title">Title containing:</label>
-    <input type="text" id="title" name="title">
+    <label class="text-white mx-2 my-2"for="title">Title containing:</label>
+    <input type="text" id="title" name="title"
+           th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
     <button class="btn btn-info mx-2 my-2" type="submit">Filter</button>
 </form>
 

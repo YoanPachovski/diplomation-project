@@ -14,8 +14,9 @@
     </a>
 </button>
 <form th:action="@{/defenses/by-grade}" method="get">
-    <label for="grade" class="text-white " >Grade:</label>
-    <select id="grade" name="grade">
+    <label for="grade" class="text-white mx-2 my-2" >Grade:</label>
+    <select id="grade" name="grade"
+            th:style="'border:3px solid black; border-radius:8px; padding:2px;'">
         <option th:each="i : ${#numbers.sequence(2, 6)}"
                 th:value="${i}" th:text="${i}">
         </option>
